@@ -4,7 +4,7 @@ import styles from './Modal.module.css';
 
 const modalRoot = document.querySelector('#modal-root');
 
-const Modal = ({ children }) => {
+const Modal = ({ children, onClose }) => {
   useEffect(() => {
     window.addEventListener('keydown', handleKeyDown);
     return () => {
@@ -14,12 +14,12 @@ const Modal = ({ children }) => {
 
   const handleKeyDown = event => {
     if (event.code === 'Escape') {
-      this.props.onClose();
+      onClose();
     }
   };
   const handleBackdropClick = event => {
     if (event.currentTarget === event.target) {
-      this.props.onClose();
+      onClose();
     }
   };
 
