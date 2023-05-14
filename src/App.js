@@ -41,8 +41,9 @@ const App = () => {
     });
   };
 
-  const searchSubmit = searchValue => {
-    setSearchValue(searchValue);
+  const searchSubmit = value => {
+    if (value === searchValue) return;
+    setSearchValue(value);
     setImages([]);
     setPageNumber(1);
   };
